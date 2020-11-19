@@ -1,3 +1,5 @@
+const cartWrapper = document.querySelector('.cart-wrapper');
+
 window.addEventListener('click', function (e) {
     if (e.target.hasAttribute('data-cart')) {
         const card = e.target.closest('.card');
@@ -41,8 +43,6 @@ window.addEventListener('click', function (e) {
             </div>
         </div>
     </div>`;
-
-    const cartWrapper = document.querySelector('.cart-wrapper');
 
     cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
 
