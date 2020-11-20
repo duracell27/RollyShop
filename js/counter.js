@@ -5,9 +5,23 @@ window.addEventListener('click', function (e) {
 
         if (e.target.dataset.action === 'plus') {
             counter.innerText = ++counter.innerText;
+            if(e.target.closest('.cart-wrapper')){
+                toggleCartStatus();
+            }
         } else if (e.target.dataset.action === 'minus') {
-            if (counter.innerText > 1) {
-                counter.innerText = --counter.innerText;
+            
+
+            if(e.target.closest('.cart-wrapper')){
+                if (counter.innerText > 1) {
+                    counter.innerText = --counter.innerText;
+                }else{
+                    e.target.closest('.cart-item').remove();
+                }
+                toggleCartStatus();
+            }else{
+                if (counter.innerText > 1) {
+                    counter.innerText = --counter.innerText;
+                }
             }
         }
     }
